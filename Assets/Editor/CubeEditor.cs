@@ -53,7 +53,10 @@ public class CubeEditor : Editor
         {    
             foreach (var cube in GameObject.FindObjectsOfType<Cube>(true))
             {              
-                cube.gameObject.SetActive(!cube.gameObject.activeSelf);               
+                cube.gameObject.SetActive(!cube.gameObject.activeSelf);
+                
+                // Unsure if we want to clear out of inspector or not, but this is the code to do it
+                //Selection.objects = new Object[0];
             }
         }
         GUI.backgroundColor = cachedColor;  // Change the button color back to default (doesn't work for some reason)
