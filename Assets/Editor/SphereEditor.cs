@@ -23,6 +23,11 @@ public class SphereEditor : Editor
             EditorGUILayout.HelpBox("Sphere size cannot be smaller than 1", MessageType.Warning);
         }
 
+        if (size.floatValue > 2f)
+        {
+            EditorGUILayout.HelpBox("Sphere size cannot be larger than 2", MessageType.Warning);
+        }
+
         //EditorGUILayout.BeginHorizontal();  // Have the buttons next to each other in the editor
 
         using (new EditorGUILayout.HorizontalScope())   // Place the buttons next to each other in the editor using a horizontal scope
@@ -38,8 +43,8 @@ public class SphereEditor : Editor
             // Create button for clearing the selection
             if (GUILayout.Button("Clear selection"))
             {
-                Selection.objects = new Object[] { (target as Sphere).gameObject };
-                
+                Selection.objects = new Object[0];
+
                 // Unsure if we want to clear out of inspector or not, but this is the code to do it
                 //Selection.objects = new Object[0];
             }

@@ -18,6 +18,11 @@ public class CubeEditor : Editor
         serializedObject.ApplyModifiedProperties();
 
         // Create a helpbox warning if the cube size is invalid
+        if (size.floatValue < 1f)
+        {
+            EditorGUILayout.HelpBox("Cube size cannot be smaller than 1", MessageType.Warning);
+        }
+
         if (size.floatValue > 2f)
         {
             EditorGUILayout.HelpBox("Cube size cannot be larger than 2", MessageType.Warning);
@@ -38,7 +43,7 @@ public class CubeEditor : Editor
             // Create button for clearing the selection
             if (GUILayout.Button("Clear selection"))
             {
-                Selection.objects = new Object[] { (target as Cube).gameObject };
+                Selection.objects = new Object[0];
             }
         }
 
